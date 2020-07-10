@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="https://kit.fontawesome.com/650e805292.js" crossorigin="anonymous"></script>
+    <title>Welcome!</title>
+</head>
+
+<body>
+    <!-- Modal for editing movies -->
+    <div class="modal fade" id="editMovieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true" style="padding: 0px 0px 0px 0px;">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Movie</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+
+
+                    <!-- Movies Info -->
+                    <div class="container" id="MoviesEdit">
+                        <!-- <div class="row">
+                         <div class="col-12 mb-2">
+                             <div class="h4">Hell or Highwater(2016)</div>
+                         </div>
+                         <div class="col-md-5 d-flex align-items-center justify-content-center pb-3"><img
+                                 class="w-100 rounded" style="max-width: 200px;"
+                                 src="https://m.media-amazon.com/images/M/MV5BMTg4NDA1OTA5NF5BMl5BanBnXkFtZTgwMDQ2MDM5ODE@._V1_SX300.jpg"
+                                 alt="poster"></div>
+                         <div class="col-md-7">
+                             <div class="h6">Genre : <span class="h5">Action, Crime, Drama, Thriller, Western</span>
+                             </div>
+                             <div class="h6">Director : <span class="h5">David Mackenzie</span></div>
+                             <div class="h6">Writer : <span class="h5">David Mackenzie</span></div>
+                             <div class="h6">IMDB Rating : <span class="h5">8.5</span></div>
+                             <div class="h6">Votes : <span class="h5">214324</span></div>
+                             <div class="h6">Metacritic : <span class="h5">79</span></div>
+                         </div>
+                         <div class="col">
+                             <div class="h6">Plot : <span class="h5" style="line-height: 140%;">A divorced father
+                                     and
+                                     his ex-con older brother
+                                     resort to a desperate scheme in order to save their family's ranch in West
+                                     Texas.
+                                 </span>
+                             </div>
+                             <div class="h6">Actors : <span class="h5">Dale Dickey, Ben Foster, Chris Pine, William
+                                     Sterchi</span>
+                             </div>
+                             <div class="h6">Awards : <span class="h5" style="line-height: 140%;">Nominated for 4
+                                     Oscars. Another 48 wins & 165
+                                     nominations</span>
+                             </div>
+                         </div> -->
+
+
+                        <!-- </div> -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal for movie details -->
+    <div class="modal fade" id="movieInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true" style="padding: 0px 0px 0px 0px;">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Movie Info</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+
+
+                    <!-- Movies Info -->
+                    <div class="container" id="MoviesInfo">
+                        <!-- <div class="row">
+                            <div class="col-12 mb-2">
+                                <div class="h4">Hell or Highwater(2016)</div>
+                            </div>
+                            <div class="col-md-5 d-flex align-items-center justify-content-center pb-3"><img
+                                    class="w-100 rounded" style="max-width: 200px;"
+                                    src="https://m.media-amazon.com/images/M/MV5BMTg4NDA1OTA5NF5BMl5BanBnXkFtZTgwMDQ2MDM5ODE@._V1_SX300.jpg"
+                                    alt="poster"></div>
+                            <div class="col-md-7">
+                                <div class="h6">Genre : <span class="h5">Action, Crime, Drama, Thriller, Western</span>
+                                </div>
+                                <div class="h6">Director : <span class="h5">David Mackenzie</span></div>
+                                <div class="h6">Writer : <span class="h5">David Mackenzie</span></div>
+                                <div class="h6">IMDB Rating : <span class="h5">8.5</span></div>
+                                <div class="h6">Votes : <span class="h5">214324</span></div>
+                                <div class="h6">Metacritic : <span class="h5">79</span></div>
+                            </div>
+                            <div class="col">
+                                <div class="h6">Plot : <span class="h5" style="line-height: 140%;">A divorced father
+                                        and
+                                        his ex-con older brother
+                                        resort to a desperate scheme in order to save their family's ranch in West
+                                        Texas.
+                                    </span>
+                                </div>
+                                <div class="h6">Actors : <span class="h5">Dale Dickey, Ben Foster, Chris Pine, William
+                                        Sterchi</span>
+                                </div>
+                                <div class="h6">Awards : <span class="h5" style="line-height: 140%;">Nominated for 4
+                                        Oscars. Another 48 wins & 165
+                                        nominations</span>
+                                </div>
+                            </div> -->
+
+
+                        <!-- </div> -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for adding new movies -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true" style="padding: 0px 0px 0px 0px;">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Adding a New Movie or Series</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Name of The Movie ?" id="searchTerm">
+                    </div>
+
+
+                    <!-- Movies List -->
+                    <div class="container" id="MoviesList">
+
+
+                        <!-- <div class="container border p-4 mt-4 rounded">
+                            <div class="row pb-3 align-items-center"> <img
+                                    src="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
+                                    class="rounded mx-auto d-block" alt="..." style="width: 40%;">
+                            </div>
+                            <div class="row pb-1 m-0">
+                                <h5>Avengers</h5>
+                            </div>
+                            <div class="row pb-1 m-0">Metascore: 94</div>
+                            <div class="row pb-1 m-0">IMDB Rating: 8.2</div>
+                            <div class="row flex-row pb-1 m-0">
+                                <div class="pr-2">Your rating:</div>
+                                <div>
+                                    <input type="number" class="form-control" min="0" max="10"
+                                        style="height: 25px; width: 50px; margin: 2px 3px 0px 0px;">
+                                </div>
+                                <div>/10</div>
+                            </div>
+                            <div class="form-group pt-2">
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                    placeholder="Any comments about the movie ?"></textarea>
+                            </div>
+                            <div class="row justify-content-center pt-1">
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+
+                        </div> -->
+
+                        <!-- List items -->
+                        <!-- <div class="row py-2 mt-2 border border-info rounded">
+                            <div class="col py-1 d-flex align-items-center d-flex justify-content-center">
+                                <div class=" d-inline-block pr-4"> <img
+                                        src="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
+                                        class="rounded" alt="poster" style="height: 8rem; width: 6rem;">
+                                </div>
+                                <div class="d-flex flex-column align-items-center">
+                                    <div class="pb-2 text-center"> Movie Title : <span
+                                            class="font-weight-bold">avnegers</span>
+                                    </div>
+                                    <div class="pb-2">Year : <span class="font-weight-bold">2019</span></div>
+                                    <button type="button" class="btn btn-info">Add</button>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Side menu -->
+    <div id="sideMenu" class="side-menu">
+        <div class="d-flex justify-content-end"><i class="fas fa-times h3 my-auto side-menu-item side-menu-item-hide"
+                id="closeSidemenuBtn"></i>
+        </div>
+        <div class="side-menu-items side-menu-item-hide h4" id="sidemenuItems">
+            <!-- <div class="side-menu-item mb-3" id="yourProfile">Your profile</div>
+            <div class="side-menu-item mb-3" id="yourFriends">Your friends</div> -->
+            <div class="friends-list" id="friendsList"></div>
+            <div class="side-menu-item mb-3">People you might know</div>
+            <!-- <div class="side-menu-item mb-3" id="logoutSidemenu">Logout</div> -->
+        </div>
+
+    </div>
+
+
+    <!-- main page container -->
+    <div class="container-fluid background-container mx-0 px-0 vh-100 d-flex justify-content-center flex-wrap"
+        id="page-container">
+        <!-- Navbar -->
+        <div class="d-flex p-2 navbar-default justify-content-center" id="navbarContainer"
+            style="position: absolute; top: 0; right: 0; width: 100vw; z-index: 1000;">
+            <div class="d-flex align-items-center px-2" style="width: 3rem;"><i
+                    class="fas fa-bars h3 my-auto navbar-item" id="sideMenubtn"></i>
+            </div>
+            <div class="col d-flex pl-0 pr-1 align-items-center">
+                <div class="input-group" style="max-width: 250px;">
+                    <input type="text" class="form-control" placeholder="Search users" id="searchTermOtherUsers">
+                </div>
+            </div>
+            <!-- <div class="col pr-1 pl-0 d-flex align-items-center justify-content-end">
+                <div class="d-inline-flex mr-1 navbar-item " id="userProfileLink">
+                    <div class="m-2" id="navbar-userinfo">
+                        <button type="button" class="btn btn-outline-primary">Sign In</button>
+                    </div>
+                </div>
+                <div class="navbar-item" data-toggle="tooltip" data-placement="bottom" title="Logout" id="logoutBtn">
+                    <button type="button" class="btn btn-primary">Sign Up</button>
+                </div>
+            </div> -->
+        </div>
+
+
+        <!-- user search results -->
+        <div class="userSearch-result-container shadow" id="userSearchResultContainer">
+            <!-- <div class="d-inline-flex userSearch-item w-100 shadow" style="cursor: pointer;">
+                <img src="https://api.adorable.io/avatars/20/Ali Moussavi.png"
+                    style="border-radius: 35%; height: 2rem; width: 2rem;" alt="avatar">
+                <div class="h6 my-auto ml-2">Ali Moussavi</div>
+                <div class="ml-auto my-auto mr-1">
+                    <button id="addToFriendsBtn" type="button" class="btn btn-outline-primary"
+                        style="border-radius: 50%; padding: 0rem .46rem;" data-toggle="tooltip" data-placement="bottom"
+                        title="Add to your friends">+</button>
+                </div>
+            </div>
+
+
+            <div class="d-inline-flex userSearch-item w-100 shadow" style="cursor: pointer;"> <img
+                    src="https://api.adorable.io/avatars/20/Ali Moussavi.png"
+                    style="border-radius: 35%; height: 2rem; width: 2rem;" alt="avatar">
+                <div class="h6 my-auto ml-2">Ali Moussavi</div>
+            </div>
+            <div class="d-inline-flex userSearch-item w-100 shadow" style="cursor: pointer;"> <img
+                    src="https://api.adorable.io/avatars/20/Ali Moussavi.png"
+                    style="border-radius: 35%; height: 2rem; width: 2rem;" alt="avatar">
+                <div class="h6 my-auto ml-2">Ali Moussavi</div>
+            </div> -->
+        </div>
+
+
+        <!-- profile info -->
+        <div class=" container-fluid d-flex justify-content-center">
+            <div class="d-flex flex-column justify-content-center p-4 profileInfo-box shadow" id="profileInfoBox">
+                <div class="d-flex flex-row justify-content-center mb-2">
+                    <!-- <i class="far fa-user-circle h1 my-auto"></i> -->
+                    <img src="https://api.adorable.io/avatars/60/<%= firstname  %><%= lastname  %>.png"
+                        style="border-radius: 35%;" alt="">
+                    <div class="h2 my-auto ml-3"><%= firstname  %> <%= lastname  %></div>
+                </div>
+                <div class="d-flex flex-row justify-content-center">
+                    <i class="fas fa-film my-auto h5"></i>
+                    <div class="ml-2 mt-1" id="noOfMoviesWatched">Movies Watched: 0</div>
+                </div>
+                <div class="d-flex flex-row justify-content-center">
+                    <i class="fas fa-tv my-auto" style="font-size: .9em;"></i>
+                    <div class="ml-2 mt-1" id="noOfSeriesWatched">Series Watched: 0</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container p-0 mb-4 shadow rounded" id="waypoint"
+            style="width: 21.5rem;height: 80vh; background-color:whitesmoke; transform: translate(0px,70px);">
+            <div class="d-flex justify-content-between pt-3 pb-2 container">
+                <h4 class=" text-main d-inline-block mt-2 ">Watched Movies</h4>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                    data-list="moviesList">Add</button>
+            </div>
+            <div class="container">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search this list" id="searchTermWatchedMovies">
+                </div>
+            </div>
+
+            <div class="auto-overflow rounded mx-auto movieList-container-size">
+                <div class="container" id="moviesList">
+                    <!-- <div class="card px-3 pt-3 row flex-row no-gutters justify-content-center">
+
+                        <div class="col-4 px-2">
+                            <img src="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
+                                class="rounded mx-auto d-block" alt="..." style="width: 100%;">
+                        </div>
+                        <div class="col-8 px-2">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-title">Your Rating: <span>
+                                    <h5> 8/10</h5>
+                                </span></h6>
+                        </div>
+                        <div class="col-12 h5 m-0 d-flex justify-content-center pb-1"><i
+                                class="fas fa-chevron-down dropdown rotate180" data-toggle="collapse"
+                                href="#collapseExample" role="button" aria-expanded="false"
+                                aria-controls="collapseExample"></i></div>
+                        <div class="col-12 collapse" id="collapseExample">
+                            <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, esse.
+                                Voluptatum quo eos, quibusdam voluptatem animi commodi blanditiis iste hic neque quidem
+                                nobis inventore omnis? Blanditiis qui neque quos aut.</p>
+                        </div>
+                        <div class="col-12 p-3 collapse" id="collapseExample"> <button type="button"
+                                class="btn btn-primary mr-1">Edit</button>
+                            <button type="button" class="btn btn-danger mr-1">Delete</button>
+                            <button type="button" class="btn btn-info" data-toggle="modal"
+                                data-target="#movieInfoModal">Info</button>
+                        </div>
+
+
+
+                    </div> -->
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="container p-0 mb-4 shadow rounded"
+            style="width: 21.5rem;height: 80vh; background-color:whitesmoke; transform: translate(0px,70px);">
+            <div class="d-flex justify-content-between pt-3 pb-2 container">
+                <h4 class=" text-main d-inline-block mt-2 ">Watched Series</h4>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                    data-list="seriesList">Add</button>
+            </div>
+            <div class="container">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search this list" id="searchTermWatchedSeries">
+                </div>
+            </div>
+
+            <div class="auto-overflow rounded mx-auto movieList-container-size">
+                <div class="container" id="seriesList">
+                    <!-- <div class="card px-3 pt-3 row flex-row no-gutters justify-content-center">
+
+                        <div class="col-4 px-2">
+                            <img src="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
+                                class="rounded mx-auto d-block" alt="..." style="width: 100%;">
+                        </div>
+                        <div class="col-8 px-2">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-title">Your Rating: <span>
+                                    <h5> 8/10</h5>
+                                </span></h6>
+                        </div>
+                        <div class="col-12 h5 m-0 d-flex justify-content-center pb-1"><i
+                                class="fas fa-chevron-down dropdown rotate180" data-toggle="collapse"
+                                href="#collapseExample" role="button" aria-expanded="false"
+                                aria-controls="collapseExample"></i></div>
+                        <div class="col-12 collapse" id="collapseExample">
+                            <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, esse.
+                                Voluptatum quo eos, quibusdam voluptatem animi commodi blanditiis iste hic neque quidem
+                                nobis inventore omnis? Blanditiis qui neque quos aut.</p>
+                        </div>
+                        <div class="col-12 p-3 collapse" id="collapseExample"> <button type="button"
+                                class="btn btn-primary mr-1">Edit</button>
+                            <button type="button" class="btn btn-danger mr-1">Delete</button>
+                            <button type="button" class="btn btn-info" data-toggle="modal"
+                                data-target="#movieInfoModal">Info</button>
+                        </div>
+
+
+
+                    </div> -->
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="container p-0 mb-4 shadow rounded"
+            style="width: 21.5rem;height: 80vh; background-color:whitesmoke; transform: translate(0px,70px);">
+            <div class="d-flex justify-content-between pt-3 pb-2 container">
+                <h4 class=" text-main d-inline-block mt-2 ">Things to Watch</h4>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                    data-list="thingsToWatchList">Add</button>
+            </div>
+            <div class="container">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search this list" id="searchTermThingToWatch">
+                </div>
+            </div>
+
+            <div class="auto-overflow rounded mx-auto movieList-container-size">
+                <div class="container" id="thingsToWatchList">
+                    <!-- <div class="card px-3 pt-3 row flex-row no-gutters justify-content-center">
+
+                        <div class="col-4 px-2">
+                            <img src="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
+                                class="rounded mx-auto d-block" alt="..." style="width: 100%;">
+                        </div>
+                        <div class="col-8 px-2">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-title">Your Rating: <span>
+                                    <h5> 8/10</h5>
+                                </span></h6>
+                        </div>
+                        <div class="col-12 h5 m-0 d-flex justify-content-center pb-1"><i
+                                class="fas fa-chevron-down dropdown rotate180" data-toggle="collapse"
+                                href="#collapseExample" role="button" aria-expanded="false"
+                                aria-controls="collapseExample"></i></div>
+                        <div class="col-12 collapse" id="collapseExample">
+                            <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, esse.
+                                Voluptatum quo eos, quibusdam voluptatem animi commodi blanditiis iste hic neque quidem
+                                nobis inventore omnis? Blanditiis qui neque quos aut.</p>
+                        </div>
+                        <div class="col-12 p-3 collapse" id="collapseExample"> <button type="button"
+                                class="btn btn-primary mr-1">Edit</button>
+                            <button type="button" class="btn btn-danger mr-1">Delete</button>
+                            <button type="button" class="btn btn-info" data-toggle="modal"
+                                data-target="#movieInfoModal">Info</button>
+                        </div>
+
+
+
+                    </div> -->
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const username = '<%= user  %>';
+        const userId = '<%= userId  %>';
+        const firstname = '<%= firstname  %>';
+        const lastname = '<%= lastname  %>';
+    </script>
+    <script src="/js/utils.js"></script>
+    <script src="/js/eventHandlers.js"></script>
+    <script src="/js/userPage.js"></script>
+
+</body>
+
+</html>

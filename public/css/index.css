@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+
+@font-face {
+	font-family: MotionPicturePersonalUse;
+	src: url(../fonts/MotionPicturePersonalUse-VMYw.ttf);
+}
+
+@font-face {
+	font-family: theGodfather-rgRK;
+	src: url(../fonts/theGodfather-rgRK.ttf);
+}
+
+@font-face {
+	font-family: Avengers;
+	src: url(../fonts/AvengeanceHeroicAvengerNormal-Bz7d.ttf);
+}
+
+/* ----------------------------------------------- */
+/* KEYFRAMES */
+/* ----------------------------------------------- */
+@keyframes rotate {
+	to {
+		transform: rotate(1turn);
+	}
+}
+
+/* ----------------------------------------------- */
+/* BASIC SETUP */
+/* ----------------------------------------------- */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	background-color: #fff;
+	font-family: 'Poppins', 'Arial', sans-serif;
+	overflow-x: hidden;
+}
+
+.background-container {
+	background-image: url(./movieBackground.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+	width: .4rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.096);
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	background: rgba(68, 68, 68, 0.384);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(68, 68, 68, 0.2);
+}
+
+.text-main {
+	font-family: Avengers;
+	letter-spacing: .08rem;
+}
+
+.auto-overflow {
+	overflow: auto;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.h6 {
+	font-size: .8em;
+	line-height: 90%;
+}
+
+.h5 {
+	font-size: 1.2em;
+	font-weight: 200;
+}
+
+.system-message {
+	position: absolute;
+	top: 3rem;
+	right: 1rem;
+	z-index: 4000;
+}
+.navbar-default {
+	transition: all .5s;
+}
+
+.navbar-sticky {
+	background-color: rgba(255, 255, 255, .98);
+	box-shadow: 0 2px 2px #efefef;
+}
+
+.navbar-item {
+	transition: all .5s;
+	cursor: pointer;
+}
+
+.navbar-item:hover {
+	color: rgba(3, 155, 229, 1);
+}
+
+.userSearch-result-container {
+	position: absolute;
+	top: 3rem;
+	left: 3.5rem;
+	background-color: rgba(255, 255, 255, 0.918);
+	height: 0rem;
+	width: 250px;
+	border-radius: 0px 0px 10px 10px;
+	z-index: 1500;
+	padding-left: .9rem;
+	padding-right: .9rem;
+	transition: all .1s;
+	overflow: hidden;
+}
+
+.userSearch-result-container-visible {
+	height: auto;
+	max-height: 20rem;
+	padding-top: .9rem;
+	padding-bottom: .9rem;
+	overflow-y: scroll;
+}
+
+.userSearch-item {
+	padding: .4rem;
+	margin-bottom: .4rem;
+	border-radius: 5px;
+	background-color: rgb(255, 255, 255);
+}
+
+.side-menu {
+	padding: .9rem;
+	color: rgba(255, 255, 255);
+	background-color: #212529;
+	opacity: .95;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 250px;
+	height: 100vh;
+	z-index: 2000;
+	transform: translateX(-250px);
+	transition: all .6s;
+	overflow: hidden;
+}
+
+.side-menu-visible {
+	transform: translateX(0);
+}
+
+.side-menu-item {
+	transition: all .6s;
+	cursor: pointer;
+}
+
+.side-menu-item:hover {
+	color: rgba(3, 155, 229, 1);
+}
+
+.side-menu-items {
+	transition: all .6s;
+	font-family: Avengers;
+	letter-spacing: .1rem;
+}
+
+.side-menu-item-hide {
+	transform: translateX(-200px);
+}
+
+.friends-list {
+	letter-spacing: initial;
+	font-family: 'Poppins';
+	border-radius: 5px;
+	color: #212529;
+	height: 0rem;
+	background-color: rgba(255, 255, 255);
+	transition: all .5s;
+	overflow-y: hidden;
+	padding-right: .5rem;
+	padding-left: .5rem;
+}
+
+.friends-list-visible {
+	height: 15rem;
+	padding-top: .5rem;
+	padding-bottom: .5rem;
+	margin-bottom: 1rem;
+	overflow-y: scroll;
+}
+
+.friend-item {
+	padding-bottom: .25rem;
+	border-bottom: .5px solid #212529;
+	margin-bottom: .25rem;
+}
+
+.profileInfo-box {
+	background-color: rgba(255, 255, 255, 0.4);
+	margin-top: 70px;
+	margin-bottom: -50px;
+	border-radius: 15px;
+}
+
+.movieList-container-size {
+	width: 21.5rem;
+}
+
+.card {
+	transition: all .5s;
+}
+
+.rotate180 {
+	transform: rotate(180deg);
+}
+
+.dropdown-icon {
+	transition: all .2s;
+}
+
+.dropdown--item {
+	transition: all .4s;
+	max-height: 300px;
+	overflow: auto;
+}
+
+.dropdown--item-hide {
+	max-height: 0;
+	opacity: 0;
+	padding: 0 !important;
+}
+
+.loader--anim {
+	width: 35px;
+	height: 35px;
+	border: 5px solid rgba(189, 189, 189, 0.25);
+	border-left-color: rgba(3, 155, 229, 1);
+	border-top-color: rgba(3, 155, 229, 1);
+	border-radius: 50%;
+	margin: 1.25rem auto 0 auto;
+	animation: rotate 1s infinite linear;
+}
+
+.dim-background {
+	background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7));
+}
+
+@media (max-width: 767px) {
+	* {
+		font-size: 13px;
+	}
+}
