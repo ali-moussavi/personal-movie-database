@@ -23,7 +23,7 @@ if (sessionNum) {
 					localStorage.getItem('PMDBlastName') ||
 					sessionStorage.getItem('PMDBlastName');
 				location.replace(
-					`https://git.heroku.com/your--movie--database.git/profile/?username=${signedInUsername}&id=${signedInUserId}&name=${signedInfirstname}&lname=${signedInlastname}`
+					`https://your--movie--database.herokuapp.com/profile/?username=${signedInUsername}&id=${signedInUserId}&name=${signedInfirstname}&lname=${signedInlastname}`
 				);
 			}
 		})

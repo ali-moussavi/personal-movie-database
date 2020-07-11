@@ -18,7 +18,7 @@ const onAdd = async (Movie) => {
 		};
 		try {
 			const response = await axios.post(
-				'https://git.heroku.com/your--movie--database.git/addmovieorseries',
+				'https://your--movie--database.herokuapp.com/addmovieorseries',
 				movieInfo
 			);
 			console.log(response);
@@ -61,14 +61,14 @@ const onSearchOtherUsers = async (event) => {
 	if (searchTerm) {
 		if (!localStorage.getItem('PMDBfriendsList')) {
 			const response = await axios.get(
-				`https://git.heroku.com/your--movie--database.git/userFriends/?Id=${signedInUserId ||
+				`https://your--movie--database.herokuapp.com/userFriends/?Id=${signedInUserId ||
 					userId}`
 			);
 			const friendsList = response.data;
 			localStorage.setItem('PMDBfriendsList', JSON.stringify(friendsList));
 		}
 		const response = await axios.get(
-			`https://git.heroku.com/your--movie--database.git/usersearchResults/?searchTerm=${searchTerm}`
+			`https://your--movie--database.herokuapp.com/usersearchResults/?searchTerm=${searchTerm}`
 		);
 		searchResultContainer.classList.add('userSearch-result-container-visible');
 		const userSearchResultList = document.getElementById('userSearchResultContainer');
@@ -136,7 +136,7 @@ const onSave = async (movieObj, event) => {
 	if (movieObj.listName == 'moviesList') {
 		try {
 			const response = await axios.post(
-				'https://git.heroku.com/your--movie--database.git/addmovieorseries',
+				'https://your--movie--database.herokuapp.com/addmovieorseries',
 				movieInfo
 			);
 			console.log(response);
@@ -151,7 +151,7 @@ const onSave = async (movieObj, event) => {
 	} else if (movieObj.listName == 'seriesList') {
 		try {
 			const response = await axios.post(
-				'https://git.heroku.com/your--movie--database.git/addmovieorseries',
+				'https://your--movie--database.herokuapp.com/addmovieorseries',
 				movieInfo
 			);
 			console.log(response);
@@ -178,7 +178,7 @@ const onDelete = async (movieID, event) => {
 	try {
 		const containerList = event.target.parentElement.parentElement.parentElement.id;
 		const response = await axios.delete(
-			`https://git.heroku.com/your--movie--database.git/removeWatchedMovieOrSeries/?movieId=${movieID}&userId=${userId.toString()}&sessionNum=${sessionNum}&containerList=${containerList}`
+			`https://your--movie--database.herokuapp.com/removeWatchedMovieOrSeries/?movieId=${movieID}&userId=${userId.toString()}&sessionNum=${sessionNum}&containerList=${containerList}`
 		);
 
 		console.log(response);
@@ -267,7 +267,7 @@ const onEdit = async (movieID, event) => {
 				userComment: event.target[1].value
 			};
 			const response = await axios.put(
-				'https://git.heroku.com/your--movie--database.git/editWatchedMovieOrSeries',
+				'https://your--movie--database.herokuapp.com/editWatchedMovieOrSeries',
 				body
 			);
 			console.log(response);
@@ -294,7 +294,7 @@ const onSignin = async (event) => {
 	renderLoadingAnim(formContainer);
 	try {
 		const response = await axios.post(
-			'https://git.heroku.com/your--movie--database.git/signin',
+			'https://your--movie--database.herokuapp.com/signin',
 			body
 		);
 		removeLoadingAnim(formContainer);
@@ -313,8 +313,8 @@ const onSignin = async (event) => {
 			sessionStorage.setItem('PMDBlastName', response.data.lastname);
 		}
 		location.replace(
-			`https://git.heroku.com/your--movie--database.git/profile/?username=${response
-				.data.username}&id=${response.data.userid.toString()}&name=${response.data
+			`https://your--movie--database.herokuapp.com/profile/?username=${response.data
+				.username}&id=${response.data.userid.toString()}&name=${response.data
 				.firstname}&lname=${response.data.lastname}`
 		);
 	} catch (error) {
@@ -337,7 +337,7 @@ const onSignUp = async (event) => {
 	};
 	try {
 		const response = await axios.post(
-			'https://git.heroku.com/your--movie--database.git/signup',
+			'https://your--movie--database.herokuapp.com/signup',
 			body
 		);
 		removeLoadingAnim(formContainer);
@@ -348,7 +348,7 @@ const onSignUp = async (event) => {
 		sessionStorage.setItem('PMDBfirstName', response.data.firstname);
 		sessionStorage.setItem('PMDBlastName', response.data.lastname);
 		location.replace(
-			`https://git.heroku.com/your--movie--database.git/profile/?username=${body.username}&id=${response.data.userid.toString()}&name=${body.firstname}&lname=${body.lastname}`
+			`https://your--movie--database.herokuapp.com/profile/?username=${body.username}&id=${response.data.userid.toString()}&name=${body.firstname}&lname=${body.lastname}`
 		);
 	} catch (error) {
 		removeLoadingAnim(formContainer);
@@ -360,7 +360,7 @@ const onSignUp = async (event) => {
 const onLogout = () => {
 	localStorage.clear();
 	sessionStorage.clear();
-	location.replace(`https://git.heroku.com/your--movie--database.git/`);
+	location.replace(`https://your--movie--database.herokuapp.com/`);
 };
 
 const onScroll = () => {
@@ -382,7 +382,7 @@ const loadProfilePage = () => {
 	const username =
 		localStorage.getItem('PMDBuserName') || sessionStorage.getItem('PMDBuserName');
 	location.replace(
-		`https://git.heroku.com/your--movie--database.git/profile/?username=${username}&id=${userid.toString()}&name=${name}&lname=${lastName}`
+		`https://your--movie--database.herokuapp.com/profile/?username=${username}&id=${userid.toString()}&name=${name}&lname=${lastName}`
 	);
 };
 
@@ -404,7 +404,7 @@ const getFriendsList = async () => {
 				localStorage.getItem('PMDBuserid') ||
 				sessionStorage.getItem('PMDBuserid');
 			const response = await axios.get(
-				`https://git.heroku.com/your--movie--database.git/userFriends/?Id=${userId}`
+				`https://your--movie--database.herokuapp.com/userFriends/?Id=${userId}`
 			);
 			const friendsList = response.data;
 			localStorage.setItem('PMDBfriendsList', JSON.stringify(friendsList));
@@ -424,7 +424,7 @@ const getPeopleYouMighKnowList = async () => {
 	if (peopleYMNlistEl.childNodes.length == 0) {
 		if (!localStorage.getItem('PMDBfriendsList') && signedInUserId) {
 			const response = await axios.get(
-				`https://git.heroku.com/your--movie--database.git/userFriends/?Id=${signedInUserId ||
+				`https://your--movie--database.herokuapp.com/userFriends/?Id=${signedInUserId ||
 					userId}`
 			);
 			const friendsList = response.data;
@@ -433,7 +433,7 @@ const getPeopleYouMighKnowList = async () => {
 		try {
 			const searchTerm = '';
 			const response = await axios.get(
-				`https://git.heroku.com/your--movie--database.git/usersearchResults/?searchTerm=${searchTerm}`
+				`https://your--movie--database.herokuapp.com/usersearchResults/?searchTerm=${searchTerm}`
 			);
 			const friendsArray =
 				JSON.parse(localStorage.getItem('PMDBfriendsList')) || [];
@@ -466,10 +466,7 @@ const addToFriendsHandler = async (friendInfo, event) => {
 		sessionNum: sessionNum || 'does not exist'
 	};
 	try {
-		await axios.post(
-			'https://git.heroku.com/your--movie--database.git/addFriend',
-			body
-		);
+		await axios.post('https://your--movie--database.herokuapp.com/addFriend', body);
 		event.target.parentElement.remove();
 		showSystemMsg('Friend Added');
 		if (localStorage.getItem('PMDBfriendsList')) {
@@ -478,7 +475,7 @@ const addToFriendsHandler = async (friendInfo, event) => {
 			localStorage.setItem('PMDBfriendsList', JSON.stringify(friendsList));
 		} else {
 			const response = await axios.get(
-				`https://git.heroku.com/your--movie--database.git/userFriends/?Id=${userId}`
+				`https://your--movie--database.herokuapp.com/userFriends/?Id=${userId}`
 			);
 			const friendsList = response.data;
 			friendsList.push(friendInfo);
