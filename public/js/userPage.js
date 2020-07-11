@@ -21,23 +21,6 @@ $('#exampleModal').on('show.bs.modal', function(event) {
 let noOfMoviesWatched = 0;
 let noOfSeriesWatched = 0;
 
-const isSignedin = async (userId, sessionNum = '0') => {
-	try {
-		const response = await axios.get(
-			`http://127.0.0.1:3000/isSignedin/?Id=${userId}&sesId=${sessionNum}`
-		);
-
-		if (response.data.signedIn == 'true') {
-			return true;
-		} else {
-			return false;
-		}
-	} catch (error) {
-		console.log(error);
-		return false;
-	}
-};
-
 const fetchMovies = async (searchTitle) => {
 	const modifiedSearchTitle = searchTitle.split(' ').join('?');
 	try {
@@ -306,7 +289,7 @@ const createFriendItem = (friendInfo) => {
 
 	container.addEventListener('click', () => {
 		location.replace(
-			`http://127.0.0.1:3000/profile/?username=${friendInfo.username}&id=${friendInfo.userid}&name=${friendInfo.firstname}&lname=${friendInfo.lastname}`
+			`https://git.heroku.com/your--movie--database.git/profile/?username=${friendInfo.username}&id=${friendInfo.userid}&name=${friendInfo.firstname}&lname=${friendInfo.lastname}`
 		);
 	});
 
@@ -324,7 +307,7 @@ const createUserSearchResultItem = (userInfo, isFriend = false) => {
 	avatar.style.cssText = 'border-radius: 35%; height: 2rem; width: 2rem;';
 	avatar.addEventListener('click', () => {
 		location.replace(
-			`http://127.0.0.1:3000/profile/?username=${userInfo.username}&id=${userInfo.userid}&name=${userInfo.firstname}&lname=${userInfo.lastname}`
+			`https://git.heroku.com/your--movie--database.git/profile/?username=${userInfo.username}&id=${userInfo.userid}&name=${userInfo.firstname}&lname=${userInfo.lastname}`
 		);
 	});
 	container.append(avatar);
@@ -334,7 +317,7 @@ const createUserSearchResultItem = (userInfo, isFriend = false) => {
 	name.innerText = `${userInfo.firstname} ${userInfo.lastname}`;
 	name.addEventListener('click', () => {
 		location.replace(
-			`http://127.0.0.1:3000/profile/?username=${userInfo.username}&id=${userInfo.userid}&name=${userInfo.firstname}&lname=${userInfo.lastname}`
+			`https://git.heroku.com/your--movie--database.git/profile/?username=${userInfo.username}&id=${userInfo.userid}&name=${userInfo.firstname}&lname=${userInfo.lastname}`
 		);
 	});
 	container.append(name);
@@ -392,8 +375,16 @@ const updateUserSearchResultsList = (searchResultEl) => {
 	userSearchResultList.prepend(searchResultEl);
 };
 
+//updating people you might know list
+const updatePeopleYMNlist = (userEl) => {
+	const PeopleYMNlist = document.getElementById('peopleYMNlist');
+	PeopleYMNlist.prepend(userEl);
+};
+
 const renderMovieList = async (userId) => {
-	const response = await axios.get(`http://127.0.0.1:3000/watchedMovies/?Id=${userId}`);
+	const response = await axios.get(
+		`https://git.heroku.com/your--movie--database.git/watchedMovies/?Id=${userId}`
+	);
 	// console.log(response);
 	noOfMoviesWatched = response.data.length;
 	const noOfMoviesWatchedEl = document.getElementById('noOfMoviesWatched');
@@ -420,7 +411,9 @@ const renderMovieList = async (userId) => {
 };
 
 const renderthingsToWatchList = async (userId) => {
-	const response = await axios.get(`http://127.0.0.1:3000/thingsToWatch/?Id=${userId}`);
+	const response = await axios.get(
+		`https://git.heroku.com/your--movie--database.git/thingsToWatch/?Id=${userId}`
+	);
 	// console.log(response);
 	if (response.data.length > 0) {
 		for (let i = 0; i < response.data.length; i++) {
@@ -440,7 +433,9 @@ const renderthingsToWatchList = async (userId) => {
 };
 
 const renderSeriesList = async (userId) => {
-	const response = await axios.get(`http://127.0.0.1:3000/watchedSeries/?Id=${userId}`);
+	const response = await axios.get(
+		`https://git.heroku.com/your--movie--database.git/watchedSeries/?Id=${userId}`
+	);
 	// console.log(response);
 	noOfSeriesWatched = response.data.length;
 	const noOfSeriesWatchedEl = document.getElementById('noOfSeriesWatched');
@@ -531,7 +526,7 @@ const renderSidemenuItems = (isUserSignedin) => {
 		yourProfile.className = 'side-menu-item mb-3';
 		yourProfile.innerText = 'Your Profile';
 		yourProfile.addEventListener('click', () => {
-			location.replace(`http://127.0.0.1:3000/`);
+			location.replace(`https://git.heroku.com/your--movie--database.git/`);
 		});
 
 		const SignIn = document.createElement('div');
@@ -539,7 +534,7 @@ const renderSidemenuItems = (isUserSignedin) => {
 		SignIn.id = 'SignIn';
 		SignIn.innerText = 'Sign in';
 		SignIn.addEventListener('click', () => {
-			location.replace(`http://127.0.0.1:3000/`);
+			location.replace(`https://git.heroku.com/your--movie--database.git/`);
 		});
 
 		const signUp = document.createElement('div');
@@ -547,7 +542,7 @@ const renderSidemenuItems = (isUserSignedin) => {
 		signUp.className = 'side-menu-item mb-3';
 		signUp.innerText = 'Sign up';
 		signUp.addEventListener('click', () => {
-			location.replace(`http://127.0.0.1:3000/register`);
+			location.replace(`https://git.heroku.com/your--movie--database.git/register`);
 		});
 
 		sidemenuItemsContainer.prepend(yourProfile, SignIn, signUp);
@@ -557,7 +552,7 @@ const renderSidemenuItems = (isUserSignedin) => {
 const renderAddtoFriendsBtn = async () => {
 	if (!localStorage.getItem('PMDBfriendsList')) {
 		const response = await axios.get(
-			`http://127.0.0.1:3000/userFriends/?Id=${signedInUserId}`
+			`https://git.heroku.com/your--movie--database.git/userFriends/?Id=${signedInUserId}`
 		);
 		const friendsList = response.data;
 		localStorage.setItem('PMDBfriendsList', JSON.stringify(friendsList));
@@ -596,6 +591,38 @@ const renderAddtoFriendsBtn = async () => {
 	}
 };
 
+const renderAddtoListBtns = () => {
+	const watchedMoviesHeader = document.getElementById('watchedMoviesHeader');
+	const watchedSeriesHeader = document.getElementById('watchedSeriesHeader');
+	const thingsToWatchHeader = document.getElementById('thingsToWatchHeader');
+	const AddBtn1 = document.createElement('button');
+	AddBtn1.type = 'button';
+	AddBtn1.className = 'btn btn-primary';
+	AddBtn1.setAttribute('data-toggle', 'modal');
+	AddBtn1.setAttribute('data-target', '#exampleModal');
+	AddBtn1.innerText = 'Add';
+	AddBtn1.setAttribute('data-list', 'moviesList');
+	watchedMoviesHeader.append(AddBtn1);
+
+	const AddBtn2 = document.createElement('button');
+	AddBtn2.type = 'button';
+	AddBtn2.className = 'btn btn-primary';
+	AddBtn2.setAttribute('data-toggle', 'modal');
+	AddBtn2.setAttribute('data-target', '#exampleModal');
+	AddBtn2.innerText = 'Add';
+	AddBtn2.setAttribute('data-list', 'seriesList');
+	watchedSeriesHeader.append(AddBtn2);
+
+	const AddBtn3 = document.createElement('button');
+	AddBtn3.type = 'button';
+	AddBtn3.className = 'btn btn-primary';
+	AddBtn3.setAttribute('data-toggle', 'modal');
+	AddBtn3.setAttribute('data-target', '#exampleModal');
+	AddBtn3.innerText = 'Add';
+	AddBtn3.setAttribute('data-list', 'thingsToWatchList');
+	thingsToWatchHeader.append(AddBtn3);
+};
+
 const sessionNum =
 	localStorage.getItem('PMDBsessionNum') || sessionStorage.getItem('PMDBsessionNum');
 const signedInUserId =
@@ -625,13 +652,17 @@ if (sessionNum) {
 				)
 			) {
 				renderAddtoFriendsBtn();
+			} else {
+				renderAddtoListBtns();
 			}
 		} else {
 			userProfileNavbar.addEventListener('click', () => {
-				location.replace(`http://127.0.0.1:3000/`);
+				location.replace(`https://git.heroku.com/your--movie--database.git/`);
 			});
 			logoutBtnNavbar.addEventListener('click', () => {
-				location.replace(`http://127.0.0.1:3000/register`);
+				location.replace(
+					`https://git.heroku.com/your--movie--database.git/register`
+				);
 			});
 		}
 	});
@@ -643,10 +674,10 @@ if (sessionNum) {
 	const logoutBtnNavbar = document.getElementById('logoutBtn');
 
 	userProfileNavbar.addEventListener('click', () => {
-		location.replace(`http://127.0.0.1:3000/`);
+		location.replace(`https://git.heroku.com/your--movie--database.git/`);
 	});
 	logoutBtnNavbar.addEventListener('click', () => {
-		location.replace(`http://127.0.0.1:3000/register`);
+		location.replace(`https://git.heroku.com/your--movie--database.git/register`);
 	});
 }
 
@@ -665,6 +696,9 @@ searchBoxWatchedSeries.addEventListener('input', onSearchLocal);
 
 const searchTermThingToWatch = document.getElementById('searchTermThingToWatch');
 searchTermThingToWatch.addEventListener('input', onSearchLocal);
+
+const peopleYouMightKnowBtn = document.getElementById('peopleYMNbutton');
+peopleYouMightKnowBtn.addEventListener('click', getPeopleYouMighKnowList);
 
 const SearchTermOtherUsers = document.getElementById('searchTermOtherUsers');
 SearchTermOtherUsers.addEventListener('input', debounce(onSearchOtherUsers, 500));

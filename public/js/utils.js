@@ -17,9 +17,11 @@ function showSearchError(errObj) {
 }
 
 const showLoginError = (errMsg, containerEl) => {
+	if (containerEl.lastElementChild.classList.contains('alert')) {
+		containerEl.lastElementChild.remove();
+	}
 	const error = document.createElement('div');
-	error.className =
-		'd-flex text-danger justify-content-center p-2 mt-2 border border-danger rounded';
+	error.className = 'alert alert-danger';
 	error.innerText = errMsg;
 	containerEl.append(error);
 };
@@ -70,8 +72,28 @@ const removeLoadingAnim = (containerEl) => {
 	containerEl.lastElementChild.remove();
 };
 
+const isSignedin = async (userId, sessionNum = '0') => {
+	try {
+		const response = await axios.get(
+			`https://git.heroku.com/your--movie--database.git/isSignedin/?Id=${userId}&sesId=${sessionNum}`
+		);
+
+		if (response.data.signedIn == 'true') {
+			return true;
+		} else {
+			return false;
+		}
+	} catch (error) {
+		console.log(error);
+		return false;
+	}
+};
+
 const showSystemMsg = (MsgText) => {
-	// <div class="system-message alert alert-success" role="alert">
-	// 	Friend added
-	// </div>;
+	const syetemMessage = document.getElementById('systemMessage');
+	syetemMessage.innerText = MsgText;
+	syetemMessage.classList.remove('system-message-hide');
+	setTimeout(() => {
+		syetemMessage.classList.add('system-message-hide');
+	}, 1200);
 };

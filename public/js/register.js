@@ -1,2 +1,2 @@
-const signinForm = document.getElementById('form-signup');
-signinForm.addEventListener('submit', onSignUp);
+const signUpForm = document.getElementById('form-signup');
+signUpForm.addEventListener('submit', onSignUp);

@@ -100,10 +100,16 @@ input[type=number]::-webkit-outer-spin-button {
 
 .system-message {
 	position: absolute;
-	top: 3rem;
+	top: 87vh;
 	right: 1rem;
 	z-index: 4000;
+	transition: .5s;
+	opacity: 1;
 }
+.system-message-hide {
+	transform: translateX(200px);
+}
+
 .navbar-default {
 	transition: all .5s;
 }
@@ -271,5 +277,16 @@ input[type=number]::-webkit-outer-spin-button {
 @media (max-width: 767px) {
 	* {
 		font-size: 13px;
+	}
+
+	.side-menu-item {
+		transition: all .6s;
+		cursor: pointer;
+		font-size: 1.5rem;
+		letter-spacing: .15rem;
+	}
+
+	.h6 {
+		font-size: 1rem;
 	}
 }

@@ -10,10 +10,8 @@ const knex = require('knex');
 const db = knex({
 	client: 'pg',
 	connection: {
-		host: '127.0.0.1',
-		user: 'postgres',
-		password: 'salamto',
-		database: 'pmdb'
+		connectionString: process.env.DATABASE_URL,
+		ssl: true
 	}
 });
 
@@ -553,7 +551,7 @@ app.put('/editWatchedMovieOrSeries', async (req, res) => {
 	}
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
 	console.log('app is running on port 3000');
 });
 

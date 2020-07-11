@@ -222,7 +222,8 @@
             <!-- <div class="side-menu-item mb-3" id="yourProfile">Your profile</div>
             <div class="side-menu-item mb-3" id="yourFriends">Your friends</div> -->
             <div class="friends-list" id="friendsList"></div>
-            <div class="side-menu-item mb-3">People you might know</div>
+            <div class="side-menu-item mb-3" id="peopleYMNbutton">People you might know</div>
+            <div class="friends-list" id="peopleYMNlist"></div>
             <!-- <div class="side-menu-item mb-3" id="logoutSidemenu">Logout</div> -->
         </div>
 
@@ -232,6 +233,11 @@
     <!-- main page container -->
     <div class="container-fluid background-container mx-0 px-0 vh-100 d-flex justify-content-center flex-wrap"
         id="page-container">
+
+        <div class="system-message alert alert-success shadow system-message-hide" role="alert" id="systemMessage">
+            Friend added
+        </div>
+
         <!-- Navbar -->
         <div class="d-flex p-2 navbar-default justify-content-center" id="navbarContainer"
             style="position: absolute; top: 0; right: 0; width: 100vw; z-index: 1000;">
@@ -306,10 +312,10 @@
 
         <div class="container p-0 mb-4 shadow rounded" id="waypoint"
             style="width: 21.5rem;height: 80vh; background-color:whitesmoke; transform: translate(0px,70px);">
-            <div class="d-flex justify-content-between pt-3 pb-2 container">
+            <div class="d-flex justify-content-between pt-3 pb-2 container" id="watchedMoviesHeader">
                 <h4 class=" text-main d-inline-block mt-2 ">Watched Movies</h4>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                    data-list="moviesList">Add</button>
+                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                    data-list="moviesList">Add</button> -->
             </div>
             <div class="container">
                 <div class="input-group">
@@ -358,10 +364,10 @@
         </div>
         <div class="container p-0 mb-4 shadow rounded"
             style="width: 21.5rem;height: 80vh; background-color:whitesmoke; transform: translate(0px,70px);">
-            <div class="d-flex justify-content-between pt-3 pb-2 container">
+            <div class="d-flex justify-content-between pt-3 pb-2 container" id="watchedSeriesHeader">
                 <h4 class=" text-main d-inline-block mt-2 ">Watched Series</h4>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                    data-list="seriesList">Add</button>
+                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                    data-list="seriesList">Add</button> -->
             </div>
             <div class="container">
                 <div class="input-group">
@@ -410,10 +416,10 @@
         </div>
         <div class="container p-0 mb-4 shadow rounded"
             style="width: 21.5rem;height: 80vh; background-color:whitesmoke; transform: translate(0px,70px);">
-            <div class="d-flex justify-content-between pt-3 pb-2 container">
+            <div class="d-flex justify-content-between pt-3 pb-2 container" id="thingsToWatchHeader">
                 <h4 class=" text-main d-inline-block mt-2 ">Things to Watch</h4>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                    data-list="thingsToWatchList">Add</button>
+                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                    data-list="thingsToWatchList">Add</button> -->
             </div>
             <div class="container">
                 <div class="input-group">
