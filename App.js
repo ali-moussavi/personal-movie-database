@@ -301,7 +301,7 @@ app.post('/addmovieorseries', async (req, res) => {
 
 	try {
 		const resp = await axios.get(
-			`http://127.0.0.1:3000/isSignedin/?Id=${userId}&sesId=${sessionNum}`
+			`https://your--movie--database.herokuapp.com/isSignedin/?Id=${userId}&sesId=${sessionNum}`
 		);
 		if (resp.data.signedIn == 'true') {
 			db('movies')
@@ -425,7 +425,7 @@ app.post('/addFriend', async (req, res) => {
 
 	try {
 		const resp = await axios.get(
-			`http://127.0.0.1:3000/isSignedin/?Id=${userId}&sesId=${sessionNum}`
+			`https://your--movie--database.herokuapp.com/isSignedin/?Id=${userId}&sesId=${sessionNum}`
 		);
 		if (resp.data.signedIn == 'true') {
 			db.transaction((trx) => {
@@ -472,7 +472,7 @@ app.delete('/removeWatchedMovieOrSeries/', async (req, res) => {
 	}
 	try {
 		const resp = await axios.get(
-			`http://127.0.0.1:3000/isSignedin/?Id=${userId}&sesId=${sessionNum}`
+			`https://your--movie--database.herokuapp.com/isSignedin/?Id=${userId}&sesId=${sessionNum}`
 		);
 		if (resp.data.signedIn == 'true') {
 			db
@@ -517,7 +517,7 @@ app.put('/editWatchedMovieOrSeries', async (req, res) => {
 	}
 	try {
 		const resp = await axios.get(
-			`http://127.0.0.1:3000/isSignedin/?Id=${userId}&sesId=${sessionNum}`
+			`https://your--movie--database.herokuapp.com/isSignedin/?Id=${userId}&sesId=${sessionNum}`
 		);
 		if (resp.data.signedIn == 'true') {
 			db
