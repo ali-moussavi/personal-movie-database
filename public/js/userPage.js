@@ -24,7 +24,7 @@ let noOfSeriesWatched = 0;
 const fetchMovies = async (searchTitle) => {
 	const modifiedSearchTitle = searchTitle.split(' ').join('?');
 	try {
-		const response = await axios.get('http://www.omdbapi.com/', {
+		const response = await axios.get('https://www.omdbapi.com/', {
 			params: { apikey: '3b3cd644', s: modifiedSearchTitle }
 		});
 		return response.data;
@@ -35,7 +35,7 @@ const fetchMovies = async (searchTitle) => {
 
 const fetchMovieDetail = async (movieId) => {
 	try {
-		const response = await axios.get('http://www.omdbapi.com/', {
+		const response = await axios.get('https://www.omdbapi.com/', {
 			params: { apikey: '3b3cd644', i: movieId }
 		});
 		return response.data;

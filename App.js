@@ -413,7 +413,6 @@ app.post('/addmovieorseries', async (req, res) => {
 	}
 });
 
-//not tested
 app.post('/addFriend', async (req, res) => {
 	const friendId = parseInt(req.body.friendInfo.userid);
 	const userId = parseInt(req.body.userId);
