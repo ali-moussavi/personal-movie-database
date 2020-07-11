@@ -345,8 +345,8 @@ const onSignUp = async (event) => {
 		sessionStorage.setItem('PMDBsessionNum', response.data.sessionNum);
 		sessionStorage.setItem('PMDBuserid', response.data.userid.toString());
 		sessionStorage.setItem('PMDBuserName', response.data.username);
-		sessionStorage.setItem('PMDBfirstName', response.data.firstname);
-		sessionStorage.setItem('PMDBlastName', response.data.lastname);
+		sessionStorage.setItem('PMDBfirstName', body.firstname);
+		sessionStorage.setItem('PMDBlastName', body.lastname);
 		location.replace(
 			`https://your--movie--database.herokuapp.com/profile/?username=${body.username}&id=${response.data.userid.toString()}&name=${body.firstname}&lname=${body.lastname}`
 		);
