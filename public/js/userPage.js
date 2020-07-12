@@ -639,6 +639,9 @@ if (sessionNum) {
 		const userProfileNavbar = document.getElementById('userProfileLink');
 		const logoutBtnNavbar = document.getElementById('logoutBtn');
 		if (isSignedIn) {
+			renderMovieList(userId);
+			renderSeriesList(userId);
+			renderthingsToWatchList(userId);
 			userProfileNavbar.addEventListener('click', loadProfilePage);
 			logoutBtn.addEventListener('click', onLogout);
 
@@ -663,6 +666,9 @@ if (sessionNum) {
 	});
 	// }
 } else {
+	renderMovieList(userId);
+	renderSeriesList(userId);
+	renderthingsToWatchList(userId);
 	renderNavbarItems(isSignedIn);
 	renderSidemenuItems(isSignedIn);
 	const userProfileNavbar = document.getElementById('userProfileLink');
@@ -675,10 +681,6 @@ if (sessionNum) {
 		location.replace(`https://your--movie--database.herokuapp.com/register`);
 	});
 }
-
-renderMovieList(userId);
-renderSeriesList(userId);
-renderthingsToWatchList(userId);
 
 const searchBox = document.getElementById('searchTerm');
 searchBox.addEventListener('input', debounce(onSearch, 500));
