@@ -620,6 +620,18 @@ const renderAddtoListBtns = () => {
 	thingsToWatchHeader.append(AddBtn3);
 };
 
+const setListContainerSize = () => {
+	const listContainerParent = document.getElementById('listContainer');
+	const totalHeight = listContainerParent.offsetHeight;
+	const child1Height = listContainerParent.children[0].offsetHeight;
+	const child2Height = listContainerParent.children[1].offsetHeight;
+	const desiredHeight = totalHeight - (child1Height + child2Height);
+
+	const listContainers = document.querySelectorAll('.movieList-container-size');
+	listContainers.forEach((container) => {
+		container.style.height = `${desiredHeight}px`;
+	});
+};
 const sessionNum =
 	localStorage.getItem('PMDBsessionNum') || sessionStorage.getItem('PMDBsessionNum');
 const signedInUserId =
@@ -708,4 +720,5 @@ SearchTermOtherUsers.addEventListener('focus', () => {
 	}
 });
 
+setListContainerSize();
 window.addEventListener('click', hideUserSearchResults);

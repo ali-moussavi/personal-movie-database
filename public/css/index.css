@@ -242,7 +242,6 @@ h5 {
 
 .movieList-container-size {
 	width: 21.5rem;
-	height: 82%;
 }
 
 .card {
@@ -298,10 +297,5 @@ h5 {
 
 	.h6 {
 		font-size: 1rem;
-	}
-
-	.movieList-container-size {
-		width: 21.5rem;
-		height: 85%;
 	}
 }
