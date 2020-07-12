@@ -115,7 +115,7 @@ h5 {
 	opacity: 1;
 }
 .system-message-hide {
-	transform: translateX(200px);
+	opacity: 0;
 }
 
 .navbar-default {
@@ -241,6 +241,7 @@ h5 {
 
 .movieList-container-size {
 	width: 21.5rem;
+	height: 78%;
 }
 
 .card {
@@ -296,5 +297,10 @@ h5 {
 
 	.h6 {
 		font-size: 1rem;
+	}
+
+	.movieList-container-size {
+		width: 21.5rem;
+		height: 82%;
 	}
 }
