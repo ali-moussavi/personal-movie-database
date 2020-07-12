@@ -134,7 +134,7 @@ const createMovieCard = (movieInfo) => {
 </div>
 <div class="col-8 px-2">
 	<h5 class="card-title">${movieInfo.movie.Title} (${movieInfo.movie.Year})</h5>
-	<h6 class="card-title m-0">${username}'s Rating: <span>
+	<h6 class="card-title m-0">${firstname}'s Rating: <span>
 			<h5>${movieInfo.userRating}/10</h5>
 		</span></h6>
 </div>
@@ -184,9 +184,6 @@ const createMovieCard = (movieInfo) => {
 		const buttons = document.getElementById(`${movieInfo.movie.imdbID}-2`);
 		// buttons.classList.toggle('d-none');
 		buttons.classList.toggle('dropdown--item-hide');
-
-		if (commentSection.classList.contains('dropdown--item-hide')) {
-		}
 	});
 
 	movieCard.children[2].appendChild(dropDownIcon);
@@ -209,7 +206,7 @@ const createItemToWatchCard = (movieInfo) => {
 		</span></h6>
 </div>
 <div class="col-12 h5 m-0 d-flex justify-content-center pb-1"></div>
-<div class="col-12 pt-3 pb-3 text-center dropdown--item dropdown--item-hide" id="${movieInfo.imdbID}-2"> 
+<div class="col-12 pt-3 pb-3 text-center dropdown--item dropdown--item-hide" id="${movieInfo.imdbID}-thingstowatch"> 
 </div>`;
 
 	const signedInUserId =
@@ -236,7 +233,7 @@ const createItemToWatchCard = (movieInfo) => {
 	dropDownIcon.addEventListener('click', (event) => {
 		event.target.classList.toggle('rotate180');
 
-		const buttons = document.getElementById(`${movieInfo.imdbID}-2`);
+		const buttons = document.getElementById(`${movieInfo.imdbID}-thingstowatch`);
 		// buttons.classList.toggle('d-none');
 		buttons.classList.toggle('dropdown--item-hide');
 	});
