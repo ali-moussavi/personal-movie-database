@@ -51,7 +51,7 @@ body {
 	overflow-x: hidden;
 }
 
-/* Let's get this party started */
+/* ScrollBar apearence */
 ::-webkit-scrollbar {
 	width: .4rem;
 }
