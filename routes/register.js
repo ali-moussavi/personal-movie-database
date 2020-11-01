@@ -1,8 +1,10 @@
+const db = require('./db');
+
 const renderRegisterPage = (res) => {
 	res.render('register');
 };
 
-const handleSignUp = (req, res, db, bcrypt) => {
+const handleSignUp = (req, res, bcrypt) => {
 	const { username, email, password, firstname, lastname } = req.body;
 	if (!email || !username || !password) {
 		return res.status(400).json('incorrect form submission');

@@ -1,4 +1,5 @@
-const isSignedIn = (req, res, db, bcrypt) => {
+const db = require('./db');
+const isSignedIn = (req, res, bcrypt) => {
 	const userId = req.query.Id;
 	const sessionNum = req.query.sesId;
 	if (!userId) {

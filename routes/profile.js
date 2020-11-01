@@ -1,3 +1,6 @@
+const db = require('./db');
+const axios = require('axios');
+
 const renderProfilePage = (req, res) => {
 	res.render('userPage', {
 		user: req.query.username,
@@ -7,7 +10,7 @@ const renderProfilePage = (req, res) => {
 	});
 };
 
-const getUserFriends = (req, res, db) => {
+const getUserFriends = (req, res) => {
 	const userId = req.query.Id;
 	db
 		.select('users.userid', 'users.username', 'users.firstname', 'users.lastname')
@@ -27,7 +30,7 @@ const getUserFriends = (req, res, db) => {
 		});
 };
 
-const addFriend = async (req, res, db) => {
+const addFriend = async (req, res) => {
 	const friendId = parseInt(req.body.friendInfo.userid);
 	const userId = parseInt(req.body.userId);
 	const sessionNum = req.body.sessionNum;
@@ -66,7 +69,7 @@ const addFriend = async (req, res, db) => {
 	}
 };
 
-const getUserSearchResults = (req, res, db) => {
+const getUserSearchResults = (req, res) => {
 	const searchTerm = req.query.searchTerm;
 	db
 		.raw(

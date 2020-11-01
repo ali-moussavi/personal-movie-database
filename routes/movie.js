@@ -1,4 +1,7 @@
-const getWatchedMovies = (req, res, db) => {
+const db = require('./db');
+const axios = require('axios');
+
+const getWatchedMovies = (req, res) => {
 	const userId = req.query.Id;
 	db
 		.select(
@@ -26,7 +29,7 @@ const getWatchedMovies = (req, res, db) => {
 		});
 };
 
-const getWatchedSeries = (req, res, db) => {
+const getWatchedSeries = (req, res) => {
 	const userId = req.query.Id;
 	db
 		.select(
@@ -54,7 +57,7 @@ const getWatchedSeries = (req, res, db) => {
 		});
 };
 
-const getThingsToWatch = (req, res, db) => {
+const getThingsToWatch = (req, res) => {
 	const userId = req.query.Id;
 	db
 		.select(
@@ -82,7 +85,7 @@ const getThingsToWatch = (req, res, db) => {
 		});
 };
 
-const addMovieOrSeries = async (req, res, db) => {
+const addMovieOrSeries = async (req, res) => {
 	const movieOrSeriesInfo = req.body.movie;
 	const userRating = parseInt(req.body.userRating);
 	const userComment = req.body.userComment;
@@ -212,7 +215,7 @@ const addMovieOrSeries = async (req, res, db) => {
 	}
 };
 
-const removeWatchedMovieOrSeries = async (req, res, db) => {
+const removeWatchedMovieOrSeries = async (req, res) => {
 	const movieId = req.query.movieId;
 	const userId = parseInt(req.query.userId);
 	const sessionNum = req.query.sessionNum;
@@ -261,7 +264,7 @@ const removeWatchedMovieOrSeries = async (req, res, db) => {
 	}
 };
 
-const editWatchedMovieOrSeries = async (req, res, db) => {
+const editWatchedMovieOrSeries = async (req, res) => {
 	const userId = parseInt(req.body.userId);
 	const movieId = req.body.movieId;
 	const sessionNum = req.body.sessionNum;

@@ -1,8 +1,10 @@
+const db = require('./db');
+
 const signInPage = (res) => {
 	res.render('index');
 };
 
-const handleSignIn = (req, res, db, bcrypt) => {
+const handleSignIn = (req, res, bcrypt) => {
 	const { email, password } = req.body;
 	if (!email || !password) {
 		return res.status(400).json('incorrect form submission');
