@@ -5,7 +5,6 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const saltRounds = 2;
 const cors = require('cors');
-const knex = require('knex');
 
 const signIn = require('./routes/signIn');
 const register = require('./routes/register');
@@ -14,15 +13,7 @@ const profile = require('./routes/profile');
 const movie = require('./routes/movie');
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-const db = knex({
-	client: 'pg',
-	connection: {
-		connectionString: process.env.DATABASE_URL,
-		ssl: {
-			rejectUnauthorized: false
-		}
-	}
-});
+const db = require('db');
 
 const app = express();
 app.set('view engine', 'ejs');
