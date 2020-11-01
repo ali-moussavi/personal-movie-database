@@ -1,5 +1,5 @@
 const knex = require('knex');
-const db = knex({
+var db = knex({
 	client: 'pg',
 	connection: {
 		connectionString: process.env.DATABASE_URL,
@@ -9,6 +9,4 @@ const db = knex({
 	}
 });
 
-module.exports = {
-	db
-};
+module.exports = db;
