@@ -13,7 +13,7 @@ const profile = require('./routes/profile');
 const movie = require('./routes/movie');
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-const db = require('db');
+const db = require('./db');
 
 const app = express();
 app.set('view engine', 'ejs');
