@@ -55,14 +55,12 @@ const onSearch = async (event) => {
 const onSearchOtherUsers = async (event) => {
 	const searchResultContainer = document.getElementById('userSearchResultContainer');
 	const searchTerm = event.target.value.trim().toLowerCase();
-	const signedInUserId =
-		localStorage.getItem('PMDBuserid') || sessionStorage.getItem('PMDBuserid');
+	const signedInUserId = localStorage.getItem('PMDBuserid') || sessionStorage.getItem('PMDBuserid');
 
 	if (searchTerm) {
 		if (!localStorage.getItem('PMDBfriendsList')) {
 			const response = await axios.get(
-				`https://your--movie--database.herokuapp.com/userFriends/?Id=${signedInUserId ||
-					userId}`
+				`https://your--movie--database.herokuapp.com/userFriends/?Id=${signedInUserId || userId}`
 			);
 			const friendsList = response.data;
 			localStorage.setItem('PMDBfriendsList', JSON.stringify(friendsList));
@@ -82,9 +80,7 @@ const onSearchOtherUsers = async (event) => {
 						isFriend = true;
 					}
 				});
-				updateUserSearchResultsList(
-					createUserSearchResultItem(userInfo, isFriend)
-				);
+				updateUserSearchResultsList(createUserSearchResultItem(userInfo, isFriend));
 			}
 		});
 	} else {
@@ -95,13 +91,10 @@ const onSearchOtherUsers = async (event) => {
 const onSearchLocal = (event) => {
 	const searchTerm = event.target.value.toLowerCase();
 
-	const listOfMoviesContainer =
-		event.target.parentElement.parentElement.nextElementSibling.firstElementChild;
+	const listOfMoviesContainer = event.target.parentElement.parentElement.nextElementSibling.firstElementChild;
 	const listOfMovies = listOfMoviesContainer.children;
 	for (let i = 0; i < listOfMovies.length; i++) {
-		const movieName = listOfMovies[
-			i
-		].children[1].firstElementChild.innerText.toLowerCase();
+		const movieName = listOfMovies[i].children[1].firstElementChild.innerText.toLowerCase();
 		if (!movieName.includes(searchTerm)) {
 			listOfMovies[i].classList.add('d-none');
 		} else {
@@ -213,8 +206,7 @@ const onEdit = async (movieID, event) => {
 	</div>
 	<div class="form-group pt-2">
 		<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-			placeholder="Any comments about the movie ?">${cardBody.children[3].firstElementChild
-				.innerText}</textarea>
+			placeholder="Any comments about the movie ?">${cardBody.children[3].firstElementChild.innerText}</textarea>
 	</div>
 	<div class="row justify-content-center pt-1">
 		<button type="submit" class="btn btn-primary" id="save">Save changes</button>
@@ -226,18 +218,11 @@ const onEdit = async (movieID, event) => {
 	let movieTitle;
 	const listName = event.target.parentElement.parentElement.parentElement.id;
 	if (listName == 'moviesList') {
-		movieYear = cardBody.children[1].firstElementChild.innerText
-			.match(/\(\d{4}\)/)[0]
-			.match(/\d{4}/)[0];
+		movieYear = cardBody.children[1].firstElementChild.innerText.match(/\(\d{4}\)/)[0].match(/\d{4}/)[0];
 		movieTitle = cardBody.children[1].firstElementChild.innerText.slice(0, -7);
 	} else if (listName == 'seriesList') {
-		movieYear = cardBody.children[1].firstElementChild.innerText.match(
-			/\(([^)]+)\)/
-		)[1];
-		movieTitle = cardBody.children[1].firstElementChild.innerText.replace(
-			/\(([^)]+)\)/,
-			''
-		);
+		movieYear = cardBody.children[1].firstElementChild.innerText.match(/\(([^)]+)\)/)[1];
+		movieTitle = cardBody.children[1].firstElementChild.innerText.replace(/\(([^)]+)\)/, '');
 	}
 
 	const movieObj = {
@@ -293,10 +278,7 @@ const onSignin = async (event) => {
 	const formContainer = event.target.parentElement;
 	renderLoadingAnim(formContainer);
 	try {
-		const response = await axios.post(
-			'https://your--movie--database.herokuapp.com/signin',
-			body
-		);
+		const response = await axios.post('https://your--movie--database.herokuapp.com/signin', body);
 		removeLoadingAnim(formContainer);
 		// console.log(response.data);
 		if (rememberMe == 'on') {
@@ -314,8 +296,8 @@ const onSignin = async (event) => {
 		}
 		location.replace(
 			`https://your--movie--database.herokuapp.com/profile/?username=${response.data
-				.username}&id=${response.data.userid.toString()}&name=${response.data
-				.firstname}&lname=${response.data.lastname}`
+				.username}&id=${response.data.userid.toString()}&name=${response.data.firstname}&lname=${response.data
+				.lastname}`
 		);
 	} catch (error) {
 		removeLoadingAnim(formContainer);
@@ -336,10 +318,7 @@ const onSignUp = async (event) => {
 		password: event.target[4].value
 	};
 	try {
-		const response = await axios.post(
-			'https://your--movie--database.herokuapp.com/signup',
-			body
-		);
+		const response = await axios.post('https://your--movie--database.herokuapp.com/signup', body);
 		removeLoadingAnim(formContainer);
 		console.log(response.data);
 		sessionStorage.setItem('PMDBsessionNum', response.data.sessionNum);
@@ -373,14 +352,10 @@ const onScroll = () => {
 };
 
 const loadProfilePage = () => {
-	const name =
-		localStorage.getItem('PMDBfirstName') || sessionStorage.getItem('PMDBfirstName');
-	const lastName =
-		localStorage.getItem('PMDBlastName') || sessionStorage.getItem('PMDBlastName');
-	const userid =
-		localStorage.getItem('PMDBuserid') || sessionStorage.getItem('PMDBuserid');
-	const username =
-		localStorage.getItem('PMDBuserName') || sessionStorage.getItem('PMDBuserName');
+	const name = localStorage.getItem('PMDBfirstName') || sessionStorage.getItem('PMDBfirstName');
+	const lastName = localStorage.getItem('PMDBlastName') || sessionStorage.getItem('PMDBlastName');
+	const userid = localStorage.getItem('PMDBuserid') || sessionStorage.getItem('PMDBuserid');
+	const username = localStorage.getItem('PMDBuserName') || sessionStorage.getItem('PMDBuserName');
 	location.replace(
 		`https://your--movie--database.herokuapp.com/profile/?username=${username}&id=${userid.toString()}&name=${name}&lname=${lastName}`
 	);
@@ -400,12 +375,8 @@ const getFriendsList = async () => {
 	friendsListEl.classList.toggle('friends-list-visible');
 	if (friendsListEl.childNodes.length == 0) {
 		try {
-			const userId =
-				localStorage.getItem('PMDBuserid') ||
-				sessionStorage.getItem('PMDBuserid');
-			const response = await axios.get(
-				`https://your--movie--database.herokuapp.com/userFriends/?Id=${userId}`
-			);
+			const userId = localStorage.getItem('PMDBuserid') || sessionStorage.getItem('PMDBuserid');
+			const response = await axios.get(`https://your--movie--database.herokuapp.com/userFriends/?Id=${userId}`);
 			const friendsList = response.data;
 			localStorage.setItem('PMDBfriendsList', JSON.stringify(friendsList));
 			// console.log(response.data);
@@ -424,8 +395,7 @@ const getPeopleYouMighKnowList = async () => {
 	if (peopleYMNlistEl.childNodes.length == 0) {
 		if (!localStorage.getItem('PMDBfriendsList') && signedInUserId) {
 			const response = await axios.get(
-				`https://your--movie--database.herokuapp.com/userFriends/?Id=${signedInUserId ||
-					userId}`
+				`https://your--movie--database.herokuapp.com/userFriends/?Id=${signedInUserId || userId}`
 			);
 			const friendsList = response.data;
 			localStorage.setItem('PMDBfriendsList', JSON.stringify(friendsList));
@@ -435,8 +405,7 @@ const getPeopleYouMighKnowList = async () => {
 			const response = await axios.get(
 				`https://your--movie--database.herokuapp.com/usersearchResults/?searchTerm=${searchTerm}`
 			);
-			const friendsArray =
-				JSON.parse(localStorage.getItem('PMDBfriendsList')) || [];
+			const friendsArray = JSON.parse(localStorage.getItem('PMDBfriendsList')) || [];
 			response.data.forEach((userInfo) => {
 				if (!(userInfo.userid == signedInUserId)) {
 					let isFriend = false;
@@ -461,8 +430,7 @@ const getPeopleYouMighKnowList = async () => {
 const addToFriendsHandler = async (friendInfo, event) => {
 	const body = {
 		friendInfo: friendInfo,
-		userId:
-			localStorage.getItem('PMDBuserid') || sessionStorage.getItem('PMDBuserid'),
+		userId: localStorage.getItem('PMDBuserid') || sessionStorage.getItem('PMDBuserid'),
 		sessionNum: sessionNum || 'does not exist'
 	};
 	try {
@@ -474,9 +442,7 @@ const addToFriendsHandler = async (friendInfo, event) => {
 			friendsList.push(friendInfo);
 			localStorage.setItem('PMDBfriendsList', JSON.stringify(friendsList));
 		} else {
-			const response = await axios.get(
-				`https://your--movie--database.herokuapp.com/userFriends/?Id=${userId}`
-			);
+			const response = await axios.get(`https://your--movie--database.herokuapp.com/userFriends/?Id=${userId}`);
 			const friendsList = response.data;
 			friendsList.push(friendInfo);
 			localStorage.setItem('PMDBfriendsList', JSON.stringify(friendsList));
@@ -495,9 +461,7 @@ const hideUserSearchResults = (event) => {
 			event.target.classList.contains('addToFriendsjs')
 		)
 	) {
-		const searchResultContainer = document.getElementById(
-			'userSearchResultContainer'
-		);
+		const searchResultContainer = document.getElementById('userSearchResultContainer');
 		searchResultContainer.classList.remove('userSearch-result-container-visible');
 	}
 };
