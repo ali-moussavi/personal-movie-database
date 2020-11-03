@@ -29,11 +29,11 @@ app.get('/register', (req, res) => {
 });
 
 app.post('/signin', (req, res) => {
-	signIn.handleSignIn(req, res, db, bcrypt);
+	signIn.handleSignIn(req, res, bcrypt);
 });
 
 app.post('/signup', (req, res) => {
-	register.renderRegisterPage(req, res, db, bcrypt);
+	register.renderRegisterPage(req, res, bcrypt);
 });
 
 app.get('/profile/', (req, res) => {
@@ -41,43 +41,43 @@ app.get('/profile/', (req, res) => {
 });
 
 app.get('/isSignedin/', (req, res) => {
-	isSignedIn.isSignedIn(req, res, db, bcrypt);
+	isSignedIn.isSignedIn(req, res, bcrypt);
 });
 
 app.get('/watchedMovies/', (req, res) => {
-	movie.getWatchedMovies(req, res, db);
+	movie.getWatchedMovies(req, res);
 });
 
 app.get('/watchedSeries/', (req, res) => {
-	movie.getWatchedSeries(req, res, db);
+	movie.getWatchedSeries(req, res);
 });
 
 app.get('/thingsToWatch/', (req, res) => {
-	movie.getThingsToWatch(req, res, db);
+	movie.getThingsToWatch(req, res);
 });
 
 app.get('/userFriends/', (req, res) => {
-	profile.getUserFriends(req, res, db);
+	profile.getUserFriends(req, res);
 });
 
 app.get('/usersearchResults/', (req, res) => {
-	profile.getUserSearchResults(req, res, db);
+	profile.getUserSearchResults(req, res);
 });
 
 app.post('/addmovieorseries', async (req, res) => {
-	movie.addMovieOrSeries(req, res, db);
+	movie.addMovieOrSeries(req, res);
 });
 
 app.post('/addFriend', async (req, res) => {
-	profile.addFriend(req, res, db);
+	profile.addFriend(req, res);
 });
 
 app.delete('/removeWatchedMovieOrSeries/', async (req, res) => {
-	movie.removeWatchedMovieOrSeries(req, res, db);
+	movie.removeWatchedMovieOrSeries(req, res);
 });
 
 app.put('/editWatchedMovieOrSeries', async (req, res) => {
-	movie.editWatchedMovieOrSeries(req, res, db);
+	movie.editWatchedMovieOrSeries(req, res);
 });
 
 app.listen(process.env.PORT || 3000, () => {
