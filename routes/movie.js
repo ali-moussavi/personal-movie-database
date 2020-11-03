@@ -1,4 +1,4 @@
-const db = require('./db');
+const db = require('../db');
 const axios = require('axios');
 
 const getWatchedMovies = (req, res) => {
