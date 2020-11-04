@@ -274,7 +274,7 @@ const createFriendItem = (friendInfo) => {
 	const container = document.createElement('div');
 	container.className = 'd-inline-flex friend-item w-100 p-1';
 	container.style.cursor = 'pointer';
-	container.innerHTML = ` <img src="https://avatars.dicebear.com/api/greedy/${friendInfo.firstname}${friendInfo.lastname}.svg"
+	container.innerHTML = ` <img src="https://avatars.dicebear.com/api/gridy/${friendInfo.firstname}${friendInfo.lastname}.svg"
 	style="border-radius: 35%; height: 2rem; width: 2rem;" alt="avatar">
 <div class="h6 my-auto ml-2">${friendInfo.firstname} ${friendInfo.lastname}</div>`;
 
@@ -293,7 +293,7 @@ const createUserSearchResultItem = (userInfo, isFriend = false) => {
 	container.style.cursor = 'pointer';
 
 	const avatar = document.createElement('img');
-	avatar.src = `https://avatars.dicebear.com/api/greedy/${userInfo.firstname}${userInfo.lastname}.svg`;
+	avatar.src = `https://avatars.dicebear.com/api/gridy/${userInfo.firstname}${userInfo.lastname}.svg`;
 	avatar.alt = 'avatar';
 	avatar.style.cssText = 'border-radius: 35%; height: 2rem; width: 2rem;';
 	avatar.addEventListener('click', () => {
