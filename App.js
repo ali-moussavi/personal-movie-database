@@ -30,7 +30,6 @@ app.get('/register', (req, res) => {
 });
 
 app.post('/signin', (req, res) => {
-	console.log('heloo');
 	const { email, password } = req.body;
 	if (!email || !password) {
 		return res.status(400).json('incorrect form submission');
@@ -46,7 +45,9 @@ app.post('/signin', (req, res) => {
 				const username = data[0].username;
 				db
 					.transaction((trx) => {
-						const sessionNum = Math.round(Math.random() * 10000000).toString();
+						const sessionNum = Math.round(
+							Math.random() * 10000000
+						).toString();
 						const hashSessionNum = bcrypt.hashSync(sessionNum, saltRounds);
 						return trx
 							.insert({

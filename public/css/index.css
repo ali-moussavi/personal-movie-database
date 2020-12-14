@@ -18,6 +18,11 @@
 /* ----------------------------------------------- */
 /* KEYFRAMES */
 /* ----------------------------------------------- */
+@-webkit-keyframes rotate {
+	to {
+		transform: rotate(1turn);
+	}
+}
 @keyframes rotate {
 	to {
 		transform: rotate(1turn);
@@ -49,6 +54,7 @@ body {
 	background-attachment: fixed;
 	overflow-y: scroll;
 	overflow-x: hidden;
+	padding-bottom: 5rem;
 }
 
 /* ScrollBar apearence */
@@ -59,13 +65,11 @@ body {
 /* Track */
 ::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.096);
-	-webkit-border-radius: 10px;
 	border-radius: 10px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	-webkit-border-radius: 10px;
 	border-radius: 10px;
 	background: rgba(68, 68, 68, 0.384);
 }
@@ -242,6 +246,7 @@ h5 {
 
 .movieList-container-size {
 	width: 21.5rem;
+	height: calc(80vh - 106px);
 }
 
 .card {
@@ -276,6 +281,7 @@ h5 {
 	border-top-color: rgba(3, 155, 229, 1);
 	border-radius: 50%;
 	margin: 1.25rem auto 0 auto;
+	-webkit-animation: rotate 1s infinite linear;
 	animation: rotate 1s infinite linear;
 }
 
@@ -293,6 +299,10 @@ h5 {
 		cursor: pointer;
 		font-size: 1.5rem;
 		letter-spacing: .15rem;
+	}
+
+	.background-container {
+		padding-bottom: 7rem;
 	}
 
 	.h6 {

@@ -51,7 +51,8 @@ const createSearchedMoviesList = (moviesObj) => {
 		const row = document.createElement('div');
 		row.className = 'row py-2 mt-2 border border-info rounded';
 		const col = document.createElement('div');
-		col.className = 'col py-1 d-flex align-items-center d-flex justify-content-between';
+		col.className =
+			'col py-1 d-flex align-items-center d-flex justify-content-between';
 		const imgContainer = document.createElement('div');
 		imgContainer.className = 'd-inline-block pr-4';
 		const img = document.createElement('img');
@@ -125,7 +126,8 @@ const addNewMovieComponent = (movieObj) => {
 
 const createMovieCard = (movieInfo) => {
 	const movieCard = document.createElement('div');
-	movieCard.className = 'card px-3 pt-3 my-2 row flex-row no-gutters justify-content-center';
+	movieCard.className =
+		'card px-3 pt-3 my-2 row flex-row no-gutters justify-content-center';
 	movieCard.innerHTML = ` <div class="col-4 px-2">
 	<img src="${movieInfo.movie.Poster}"
 		class="rounded mx-auto d-block" alt="..." style="width: 100%;">
@@ -140,10 +142,12 @@ const createMovieCard = (movieInfo) => {
 <div class="col-12 dropdown--item dropdown--item-hide" id="${movieInfo.movie.imdbID}-1">
 	<p class="card-text">${movieInfo.userComment}</p>
 </div>
-<div class="col-12 pt-3 pb-3 text-center dropdown--item dropdown--item-hide" id="${movieInfo.movie.imdbID}-2"> 
+<div class="col-12 pt-3 pb-3 text-center dropdown--item dropdown--item-hide" id="${movieInfo
+		.movie.imdbID}-2"> 
 </div>`;
 
-	const signedInUserId = localStorage.getItem('PMDBuserid') || sessionStorage.getItem('PMDBuserid');
+	const signedInUserId =
+		localStorage.getItem('PMDBuserid') || sessionStorage.getItem('PMDBuserid');
 	if (isSignedIn && userId == signedInUserId) {
 		const editBtn = document.createElement('button');
 		editBtn.className = 'btn btn-primary mr-1';
@@ -189,7 +193,8 @@ const createMovieCard = (movieInfo) => {
 
 const createItemToWatchCard = (movieInfo) => {
 	const itemToWatchCard = document.createElement('div');
-	itemToWatchCard.className = 'card px-3 pt-3 my-2 row flex-row no-gutters justify-content-center';
+	itemToWatchCard.className =
+		'card px-3 pt-3 my-2 row flex-row no-gutters justify-content-center';
 	itemToWatchCard.innerHTML = ` <div class="col-4 px-2">
 	<img src="${movieInfo.Poster}"
 		class="rounded mx-auto d-block" alt="..." style="width: 100%;">
@@ -204,7 +209,8 @@ const createItemToWatchCard = (movieInfo) => {
 <div class="col-12 pt-3 pb-3 text-center dropdown--item dropdown--item-hide" id="${movieInfo.imdbID}-thingstowatch"> 
 </div>`;
 
-	const signedInUserId = localStorage.getItem('PMDBuserid') || sessionStorage.getItem('PMDBuserid');
+	const signedInUserId =
+		localStorage.getItem('PMDBuserid') || sessionStorage.getItem('PMDBuserid');
 	if (isSignedIn && userId == signedInUserId) {
 		const deleteBtn = document.createElement('button');
 		deleteBtn.className = 'btn btn-danger mr-1';
@@ -324,7 +330,10 @@ const createUserSearchResultItem = (userInfo, isFriend = false) => {
 		addtoFriendsBtn.setAttribute('data-placement', 'bottom');
 		addtoFriendsBtn.setAttribute('title', 'Add to your friends');
 		addtoFriendsBtn.innerText = '+';
-		addtoFriendsBtn.addEventListener('click', addToFriendsHandler.bind(this, userInfo));
+		addtoFriendsBtn.addEventListener(
+			'click',
+			addToFriendsHandler.bind(this, userInfo)
+		);
 		addContainer.append(addtoFriendsBtn);
 		container.append(addContainer);
 	}
@@ -370,7 +379,9 @@ const updatePeopleYMNlist = (userEl) => {
 };
 
 const renderMovieList = async (userId) => {
-	const response = await axios.get(`https://your--movie--database.herokuapp.com/watchedMovies/?Id=${userId}`);
+	const response = await axios.get(
+		`https://your--movie--database.herokuapp.com/watchedMovies/?Id=${userId}`
+	);
 	// console.log(response);
 	noOfMoviesWatched = response.data.length;
 	const noOfMoviesWatchedEl = document.getElementById('noOfMoviesWatched');
@@ -397,7 +408,9 @@ const renderMovieList = async (userId) => {
 };
 
 const renderthingsToWatchList = async (userId) => {
-	const response = await axios.get(`https://your--movie--database.herokuapp.com/thingsToWatch/?Id=${userId}`);
+	const response = await axios.get(
+		`https://your--movie--database.herokuapp.com/thingsToWatch/?Id=${userId}`
+	);
 	// console.log(response);
 	if (response.data.length > 0) {
 		for (let i = 0; i < response.data.length; i++) {
@@ -417,7 +430,9 @@ const renderthingsToWatchList = async (userId) => {
 };
 
 const renderSeriesList = async (userId) => {
-	const response = await axios.get(`https://your--movie--database.herokuapp.com/watchedSeries/?Id=${userId}`);
+	const response = await axios.get(
+		`https://your--movie--database.herokuapp.com/watchedSeries/?Id=${userId}`
+	);
 	// console.log(response);
 	noOfSeriesWatched = response.data.length;
 	const noOfSeriesWatchedEl = document.getElementById('noOfSeriesWatched');
@@ -447,10 +462,15 @@ const renderSeriesList = async (userId) => {
 const renderNavbarItems = (isUserSignedin) => {
 	const navbarContainer = document.getElementById('navbarContainer');
 	const navbarRightSideItems = document.createElement('div');
-	navbarRightSideItems.className = 'col pr-1 pl-0 d-flex align-items-center justify-content-end';
+	navbarRightSideItems.className =
+		'col pr-1 pl-0 d-flex align-items-center justify-content-end';
 	if (isUserSignedin) {
-		const name = localStorage.getItem('PMDBfirstName') || sessionStorage.getItem('PMDBfirstName');
-		const lastName = localStorage.getItem('PMDBlastName') || sessionStorage.getItem('PMDBlastName');
+		const name =
+			localStorage.getItem('PMDBfirstName') ||
+			sessionStorage.getItem('PMDBfirstName');
+		const lastName =
+			localStorage.getItem('PMDBlastName') ||
+			sessionStorage.getItem('PMDBlastName');
 
 		navbarRightSideItems.innerHTML = `<div class="d-inline-flex mr-3 navbar-item " data-toggle="tooltip" data-placement="bottom"
 			title="Your profile" id="userProfileLink">
@@ -556,7 +576,10 @@ const renderAddtoFriendsBtn = async () => {
 		addtofriendsBtn.type = 'button';
 		addtofriendsBtn.className = 'btn btn-primary btn-sm';
 		addtofriendsBtn.innerText = 'Add to friends';
-		addtofriendsBtn.addEventListener('click', addToFriendsHandler.bind(this, friendInfo));
+		addtofriendsBtn.addEventListener(
+			'click',
+			addToFriendsHandler.bind(this, friendInfo)
+		);
 
 		const container = document.createElement('div');
 		container.classList = 'd-flex flex-row justify-content-center pt-3';
@@ -609,8 +632,10 @@ const setListContainerSize = () => {
 		container.style.height = `${desiredHeight}px`;
 	});
 };
-const sessionNum = localStorage.getItem('PMDBsessionNum') || sessionStorage.getItem('PMDBsessionNum');
-const signedInUserId = localStorage.getItem('PMDBuserid') || sessionStorage.getItem('PMDBuserid');
+const sessionNum =
+	localStorage.getItem('PMDBsessionNum') || sessionStorage.getItem('PMDBsessionNum');
+const signedInUserId =
+	localStorage.getItem('PMDBuserid') || sessionStorage.getItem('PMDBuserid');
 let isSignedIn = false;
 
 if (sessionNum) {
@@ -632,7 +657,12 @@ if (sessionNum) {
 			userProfileNavbar.addEventListener('click', loadProfilePage);
 			logoutBtn.addEventListener('click', onLogout);
 
-			if (!(localStorage.getItem('PMDBuserid') == userId || sessionStorage.getItem('PMDBuserid') == userId)) {
+			if (
+				!(
+					localStorage.getItem('PMDBuserid') == userId ||
+					sessionStorage.getItem('PMDBuserid') == userId
+				)
+			) {
 				renderAddtoFriendsBtn();
 			} else {
 				renderAddtoListBtns();
@@ -683,10 +713,12 @@ const SearchTermOtherUsers = document.getElementById('searchTermOtherUsers');
 SearchTermOtherUsers.addEventListener('input', debounce(onSearchOtherUsers, 500));
 SearchTermOtherUsers.addEventListener('focus', () => {
 	if (event.target.value) {
-		const searchResultContainer = document.getElementById('userSearchResultContainer');
+		const searchResultContainer = document.getElementById(
+			'userSearchResultContainer'
+		);
 		searchResultContainer.classList.add('userSearch-result-container-visible');
 	}
 });
 
-setListContainerSize();
+//setListContainerSize();
 window.addEventListener('click', hideUserSearchResults);
