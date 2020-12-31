@@ -152,7 +152,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Name of The Movie ?" id="searchTerm">
+                        <input type="text" class="form-control" placeholder="Name of The Movie or Series?"
+                            id="searchTerm" autocomplete="off">
                     </div>
 
 
@@ -296,7 +297,10 @@
                     <!-- <i class="far fa-user-circle h1 my-auto"></i> -->
                     <img src="https://avatars.dicebear.com/api/gridy/<%= firstname  %><%= lastname  %>.svg"
                         style="border-radius: 35%; width: 60px;" alt="">
-                    <div class="h2 my-auto ml-3"><%= firstname  %> <%= lastname  %></div>
+                    <div class="h2 my-auto ml-3">
+                        <%= firstname %>
+                            <%= lastname %>
+                    </div>
                 </div>
                 <div class="d-flex flex-row justify-content-center">
                     <i class="fas fa-film my-auto h5"></i>
