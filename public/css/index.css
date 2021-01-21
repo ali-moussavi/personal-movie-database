@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap");
 
 @font-face {
 	font-family: MotionPicturePersonalUse;
@@ -42,12 +42,12 @@
 html,
 body {
 	background-color: #fff;
-	font-family: 'Poppins', 'Arial', sans-serif;
+	font-family: "Poppins", "Arial", sans-serif;
 	overflow-x: hidden;
 }
 
 .background-container {
-	background-image: url(./movieBackground.jpg);
+	background-image: url(./234581.svg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -55,11 +55,12 @@ body {
 	overflow-y: scroll;
 	overflow-x: hidden;
 	padding-bottom: 5rem;
+	z-index: -1000;
 }
 
 /* ScrollBar apearence */
 ::-webkit-scrollbar {
-	width: .4rem;
+	width: 0.4rem;
 }
 
 /* Track */
@@ -79,21 +80,21 @@ body {
 
 .text-main {
 	font-family: Avengers;
-	letter-spacing: .08rem;
+	letter-spacing: 0.08rem;
 }
 
 .auto-overflow {
 	overflow: auto;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
 }
 
 .h6 {
-	font-size: .8em;
+	font-size: 0.8em;
 	line-height: 90%;
 }
 
@@ -115,7 +116,7 @@ h5 {
 	top: 87vh;
 	right: 1rem;
 	z-index: 4000;
-	transition: .5s;
+	transition: 0.5s;
 	opacity: 1;
 }
 .system-message-hide {
@@ -124,16 +125,16 @@ h5 {
 }
 
 .navbar-default {
-	transition: all .5s;
+	transition: all 0.5s;
 }
 
 .navbar-sticky {
-	background-color: rgba(255, 255, 255, .98);
+	background-color: rgba(255, 255, 255, 0.98);
 	box-shadow: 0 2px 2px #efefef;
 }
 
 .navbar-item {
-	transition: all .5s;
+	transition: all 0.5s;
 	cursor: pointer;
 }
 
@@ -150,32 +151,32 @@ h5 {
 	width: 250px;
 	border-radius: 0px 0px 10px 10px;
 	z-index: 1500;
-	padding-left: .9rem;
-	padding-right: .9rem;
-	transition: all .1s;
+	padding-left: 0.9rem;
+	padding-right: 0.9rem;
+	transition: all 0.1s;
 	overflow: hidden;
 }
 
 .userSearch-result-container-visible {
 	height: auto;
 	max-height: 20rem;
-	padding-top: .9rem;
-	padding-bottom: .9rem;
+	padding-top: 0.9rem;
+	padding-bottom: 0.9rem;
 	overflow-y: scroll;
 }
 
 .userSearch-item {
-	padding: .4rem;
-	margin-bottom: .4rem;
+	padding: 0.4rem;
+	margin-bottom: 0.4rem;
 	border-radius: 5px;
 	background-color: rgb(255, 255, 255);
 }
 
 .side-menu {
-	padding: .9rem;
+	padding: 0.9rem;
 	color: rgba(255, 255, 255);
 	background-color: #212529;
-	opacity: .95;
+	opacity: 0.95;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -183,7 +184,7 @@ h5 {
 	height: 100vh;
 	z-index: 2000;
 	transform: translateX(-250px);
-	transition: all .6s;
+	transition: all 0.6s;
 	overflow: hidden;
 }
 
@@ -192,7 +193,7 @@ h5 {
 }
 
 .side-menu-item {
-	transition: all .6s;
+	transition: all 0.6s;
 	cursor: pointer;
 }
 
@@ -201,9 +202,9 @@ h5 {
 }
 
 .side-menu-items {
-	transition: all .6s;
+	transition: all 0.6s;
 	font-family: Avengers;
-	letter-spacing: .1rem;
+	letter-spacing: 0.1rem;
 }
 
 .side-menu-item-hide {
@@ -212,29 +213,29 @@ h5 {
 
 .friends-list {
 	letter-spacing: initial;
-	font-family: 'Poppins';
+	font-family: "Poppins";
 	border-radius: 5px;
 	color: #212529;
 	height: 0rem;
 	background-color: rgba(255, 255, 255);
-	transition: all .5s;
+	transition: all 0.5s;
 	overflow-y: hidden;
-	padding-right: .5rem;
-	padding-left: .5rem;
+	padding-right: 0.5rem;
+	padding-left: 0.5rem;
 }
 
 .friends-list-visible {
 	height: 15rem;
-	padding-top: .5rem;
-	padding-bottom: .5rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
 	margin-bottom: 1rem;
 	overflow-y: scroll;
 }
 
 .friend-item {
-	padding-bottom: .25rem;
-	border-bottom: .5px solid #212529;
-	margin-bottom: .25rem;
+	padding-bottom: 0.25rem;
+	border-bottom: 0.5px solid #212529;
+	margin-bottom: 0.25rem;
 }
 
 .profileInfo-box {
@@ -250,7 +251,7 @@ h5 {
 }
 
 .card {
-	transition: all .5s;
+	transition: all 0.5s;
 }
 
 .rotate180 {
@@ -258,11 +259,11 @@ h5 {
 }
 
 .dropdown-icon {
-	transition: all .2s;
+	transition: all 0.2s;
 }
 
 .dropdown--item {
-	transition: all .4s;
+	transition: all 0.4s;
 	max-height: 300px;
 	overflow: auto;
 }
@@ -295,10 +296,10 @@ h5 {
 	}
 
 	.side-menu-item {
-		transition: all .6s;
+		transition: all 0.6s;
 		cursor: pointer;
 		font-size: 1.5rem;
-		letter-spacing: .15rem;
+		letter-spacing: 0.15rem;
 	}
 
 	.background-container {
